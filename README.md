@@ -1,5 +1,13 @@
-# CNV_ANALYSIS
-Step to run the CNV_ANALYSIS
+## CNV_ANALYSIS
+  ## Wrkflow
+  ![cnv_analysis_work_flow_updated](https://user-images.githubusercontent.com/8995865/42091357-5eb84890-7ba5-11e8-95c0-71690ee1b917.png)
+      ##STATIC pooling steps
+      # CNV_static_pooling
+      ![static_pooling - page 1](https://user-images.githubusercontent.com/8995865/42091245-e3c77ea8-7ba4-11e8-8e55-3e7b6f52c712.png)
+
+
+
+##Step to run the CNV_ANALYSIS
 > sh step1_code_for_running_CNV_analysis_parallel.sh
 
 it will initiate the
