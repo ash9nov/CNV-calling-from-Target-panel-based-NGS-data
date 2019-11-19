@@ -1,9 +1,10 @@
 ## CNV_ANALYSIS
   ## Wrkflow
-  ![cnv_analysis_work_flow_updated](https://user-images.githubusercontent.com/8995865/42091357-5eb84890-7ba5-11e8-95c0-71690ee1b917.png)
+  ![CNV_Analysis_work_flow_FINAL_screen_quality_12 10 2018](https://user-images.githubusercontent.com/8995865/69148320-51351800-0ad4-11ea-88cb-0e56cabf89ec.png)
       ##STATIC pooling steps
       # CNV_static_pooling
-      ![static_pooling - page 1](https://user-images.githubusercontent.com/8995865/42091245-e3c77ea8-7ba4-11e8-8e55-3e7b6f52c712.png)
+      ![Static_pooling_25 09 2018](https://user-images.githubusercontent.com/8995865/69148410-86da0100-0ad4-11ea-810c-db1877dc94c4.png)
+
 
 
 
