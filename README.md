@@ -1,18 +1,18 @@
 ## CNV_ANALYSIS
-  ## Wrkflow
+  ## Pipeline Workflow
   ![CNV_Analysis_work_flow_FINAL_screen_quality_12 10 2018](https://user-images.githubusercontent.com/8995865/69148320-51351800-0ad4-11ea-88cb-0e56cabf89ec.png)
       
       
-  ##STATIC pooling steps
+  ##**STATIC pooling steps**
       ![Static_pooling_25 09 2018](https://user-images.githubusercontent.com/8995865/69148410-86da0100-0ad4-11ea-810c-db1877dc94c4.png)
 
 
 
 
-##Step to run the CNV_ANALYSIS
+##**Step to run the CNV_ANALYSIS**
 > sh step1_code_for_running_CNV_analysis_parallel.sh
 
-it will initiate the
+***it will initiate the***
 
 > step2_R_code_for_SlidingWindow_MeanDepth_calculation.r
 
