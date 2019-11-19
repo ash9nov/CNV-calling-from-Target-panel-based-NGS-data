@@ -1,8 +1,9 @@
 ## CNV_ANALYSIS
   ## Wrkflow
   ![CNV_Analysis_work_flow_FINAL_screen_quality_12 10 2018](https://user-images.githubusercontent.com/8995865/69148320-51351800-0ad4-11ea-88cb-0e56cabf89ec.png)
-      ##STATIC pooling steps
-      # CNV_static_pooling
+      
+      
+  ##STATIC pooling steps
       ![Static_pooling_25 09 2018](https://user-images.githubusercontent.com/8995865/69148410-86da0100-0ad4-11ea-810c-db1877dc94c4.png)
 
 
