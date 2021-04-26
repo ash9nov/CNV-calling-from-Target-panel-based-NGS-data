@@ -1,4 +1,4 @@
-## CNV_ANALYSIS
+## In-Silico CNV detetion from Target Panel based NGS data:
     
 ##**STATIC pooling steps**
 
