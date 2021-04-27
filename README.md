@@ -3,7 +3,7 @@ Its common practice to use Next generation sequencing in diagnostics lab to dete
 Target panels are commonly used in diagnotics labs due to specificity of aims towards checking variantions in certain genes.
 Our pipeline utlized the NGS data from target panels to detect CNVs for genetics diagnostics.
 
-# Prerequisites 
+## Prerequisites 
 
     
 ** Static pooling steps**
