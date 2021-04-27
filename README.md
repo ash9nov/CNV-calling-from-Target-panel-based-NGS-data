@@ -6,7 +6,7 @@ Our pipeline utlized the NGS data from target panels to detect CNVs for genetics
 ## Prerequisites 
 
     
-** Static pooling steps**
+**Static pooling steps**
 
 ***Figure2: Pipline work-flow:***
 ![Fig2_CNV_Pipeline_Workflow](https://user-images.githubusercontent.com/8995865/115881872-7b6ad200-a44c-11eb-8eeb-aa3bdad62eed.png)
