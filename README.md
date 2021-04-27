@@ -1,8 +1,12 @@
-## In-Silico CNV detetion from Target Panel based NGS data:
+# In-Silico CNV detetion from Target Panel based NGS data:
 Its common practice to use Next generation sequencing in diagnostics lab to detect SNP/INDELs. But still to detect CNVs, diagnostic labs are still using wetlab based methods e.g. MLPA (MRC Hollend), RNA sequencing, or long-range PCR method. These methods are expensive , lab-intensive and time consuming. Due to availablity of NGS data its very suitable to use it to detect CNVs too in diagnotics.
-Target panels are commonly used in diagnotics labs due to specificity of aims towards checking variantions in certain genes
+Target panels are commonly used in diagnotics labs due to specificity of aims towards checking variantions in certain genes.
+Our pipeline utlized the NGS data from target panels to detect CNVs for genetics diagnostics.
+
+#Prerequisites 
+
     
-##** Static pooling steps**
+** Static pooling steps**
 
 ***Figure2: Pipline work-flow:***
 ![Fig2_CNV_Pipeline_Workflow](https://user-images.githubusercontent.com/8995865/115881872-7b6ad200-a44c-11eb-8eeb-aa3bdad62eed.png)
@@ -20,7 +24,7 @@ Target panels are commonly used in diagnotics labs due to specificity of aims to
 
 
 
-##**Step to run the CNV_ANALYSIS**
+##Step to run the CNV_ANALYSIS
 > sh step1_code_for_running_CNV_analysis_parallel.sh
 
 ***it will initiate the***
