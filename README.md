@@ -8,24 +8,28 @@ Our pipeline utlized the NGS data from target panels to detect CNVs for genetics
 Following softwares have to be pre-installed.
 * Unix shell.
 * R programming.
-* ImageMagick.
+* ImageMagick. 
 
-   
+## How to use
+
+1. Get Code
+	git clone https://github.com/ash9nov/Target-panel-based-CNV-detection
+
+2. 
+    
 **Static pooling steps**
 
-***Pipline work-flow:***
+***Figure2: Pipline work-flow:***
 ![Fig2_CNV_Pipeline_Workflow](https://user-images.githubusercontent.com/8995865/115881872-7b6ad200-a44c-11eb-8eeb-aa3bdad62eed.png)
 
-***Splitting of Target region in overlapping sliding windows:***
+***Figure3: Splitting of Target region in overlapping sliding windows:***
 ![Fig3_V2_Sliding_window_template_creation](https://user-images.githubusercontent.com/8995865/115881888-80c81c80-a44c-11eb-9ffa-b96ef833e922.png)
 
-***Steps of creating static pools:***
+***Figure4: Steps of creating static pools:***
 ![Fig4_V2_Static_pools_creation](https://user-images.githubusercontent.com/8995865/115881916-89b8ee00-a44c-11eb-9e3b-0606e85b3ed9.png)
 
-<!---
 ***Figure5: example plot of a CNV positive sample:***
- ![Fig5_V2_SVG _Plot_of_logCNR-score](https://user-images.githubusercontent.com/8995865/115881937-8e7da200-a44c-11eb-9cd5-83b35f987d67.png)
---->
+![Fig5_V2_SVG _Plot_of_logCNR-score](https://user-images.githubusercontent.com/8995865/115881937-8e7da200-a44c-11eb-9cd5-83b35f987d67.png)
 
 
 
