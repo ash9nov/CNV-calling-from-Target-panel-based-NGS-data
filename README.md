@@ -5,7 +5,12 @@ Our pipeline utlized the NGS data from target panels to detect CNVs for genetics
 
 ## Prerequisites 
 
-    
+Following softwares have to be pre-installed.
+* Unix shell.
+* R programming.
+* ImageMagick.
+
+   
 **Static pooling steps**
 
 ***Figure2: Pipline work-flow:***
