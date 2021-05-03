@@ -13,7 +13,7 @@ Following softwares have to be pre-installed.
 ## How to use
 
 1. Get Code
-	git clone https://github.com/ash9nov/Target-panel-based-CNV-detection
+	`git clone https://github.com/ash9nov/Target-panel-based-CNV-detection`
 
 2. 
     
