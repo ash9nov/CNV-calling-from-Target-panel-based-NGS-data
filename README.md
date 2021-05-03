@@ -10,10 +10,11 @@ Following softwares have to be pre-installed.
 * R programming.
 * ImageMagick. 
 
+## Get Code
+	`git clone https://github.com/ash9nov/Target-panel-based-CNV-detection`
 ## How to use
 
-1. Get Code
-	`git clone https://github.com/ash9nov/Target-panel-based-CNV-detection`
+1. 
 
 2. 
     
