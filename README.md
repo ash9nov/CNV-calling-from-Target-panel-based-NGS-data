@@ -19,8 +19,10 @@ To increase resolution each target region is divided into overlapping sub-region
 
 ![Fig3_V2_Sliding_window_template_creation](https://user-images.githubusercontent.com/8995865/115881888-80c81c80-a44c-11eb-9ffa-b96ef833e922.png)
 
-R code: (run in R shell.). default length of window is 75 nucleotide, sliding length is 10. Provide the Target panel (sorted and not overlapping) consist of three columns `chr		start		end`
+R code: (run in R shell.)
 `step0_R_code_for_breaking_target_regions_on_fixed_window_size.r`
+Here default length of window is 75 nucleotide, sliding length is 10. 
+Provide the Target panel (sorted and not overlapping) consist of three columns  `chr		start		end`
 
 ***Step1: Steps of creating static pools:***
 
