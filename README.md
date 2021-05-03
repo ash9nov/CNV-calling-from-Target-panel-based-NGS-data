@@ -11,13 +11,16 @@ Following softwares have to be pre-installed.
 * ImageMagick. 
 
 ## To download code
-	`git clone https://github.com/ash9nov/Target-panel-based-CNV-detection`
+	git clone https://github.com/ash9nov/Target-panel-based-CNV-detection
 ## How to use
 
 ***Step0: Splitting of Target region in overlapping sliding windows:***
+To increase resolution each target region is divided into overlapping sub-regions in a sliding window approach (as shown in Figure below), forming the template for a window-based representation of each target region. This approach is called the Target Region based Sliding Windows (TRSW) approach, or just sliding windows. This also helps in detecting CNVs occurring in smaller sub-regions, e.g., part of an exon. Selection of window size is based on length of sequencing reads and the required resolution of CNV predictions.
 
 ![Fig3_V2_Sliding_window_template_creation](https://user-images.githubusercontent.com/8995865/115881888-80c81c80-a44c-11eb-9ffa-b96ef833e922.png)
 
+R code: (run in R shell.). default length of window is 75 nucleotide, sliding length is 10
+`step0_R_code_for_breaking_target_regions_on_fixed_window_size.r`
 
 ***Step1: Steps of creating static pools:***
 
