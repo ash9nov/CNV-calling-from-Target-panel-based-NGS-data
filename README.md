@@ -39,9 +39,10 @@ Provide the Target panel (sorted and not overlapping) as input consisting of thr
 
 
 
+<!---
 ***Figure5: example plot of a CNV positive sample:***
 ![Fig5_V2_SVG _Plot_of_logCNR-score](https://user-images.githubusercontent.com/8995865/115881937-8e7da200-a44c-11eb-9cd5-83b35f987d67.png)
-
+--->
 
 
 
