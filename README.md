@@ -6,12 +6,24 @@ Our pipeline utlized the NGS data from target panels to detect CNVs for genetics
 ## Prerequisites 
 
 Following softwares have to be pre-installed.
-* Unix shell.
+* GATK.
 * R programming.
 * ImageMagick. 
 
 ## Downloading code
 	git clone https://github.com/ash9nov/Target-panel-based-CNV-detection
+
+## Preparing input data:
+[GATK's DepthOfCoverage](https://gatk.broadinstitute.org/hc/en-us/articles/360041851491-DepthOfCoverage-BETA-) is used on all the BAM files  of any NGS run for creating requied input data.
+
+`find <path_to_NGS_run_BAM_files> -name "*.bam"| sort > FINAL_BAMs.list`
+
+`mkdir coverage_report`
+
+`java -jar GATK/GenomeAnalysisTK.jar -T DepthOfCoverage -R ucsc.hg19.fasta -I FINAL_BAMs.list -o NGS_run -L Target_panel.bed`
+
+Two outputs files: **per_locus_coverage** file (consisting of nucleotide level coverage of each sample in RUN) and **run_summary** file (consiting mean coverage of each sample in RUN)
+
 ## How to use
 
 ### ***Step0: Splitting of Target region in overlapping sliding windows:***
@@ -25,7 +37,7 @@ To increase resolution each target region is divided into overlapping sub-region
 
 *Here default length of window is 75 nucleotide, sliding length is 10.*
 
-#### Input: bed files for Target panel (sorted and not overlapping) consisting of three columns  `chr		start		end`
+#### Input: bed file for Target panel (sorted and without overlaps in adjucent regions) consisting of three columns  `chr		start		end`
 
 ### ***Step1: Steps of creating static pools:***
 
