@@ -25,7 +25,7 @@ To increase resolution each target region is divided into overlapping sub-region
 
 *Here default length of window is 75 nucleotide, sliding length is 10.*
 
-Provide the Target panel (sorted and not overlapping) as input consisting of three columns  `chr		start		end`
+#### Input: bed files for Target panel (sorted and not overlapping) consisting of three columns  `chr		start		end`
 
 ### ***Step1: Steps of creating static pools:***
 
