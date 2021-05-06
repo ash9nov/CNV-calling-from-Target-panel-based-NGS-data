@@ -51,14 +51,14 @@ Below figure shows the steps of creating static pools from normal samples. In **
 `sh Steps_for_generating_static_pooling.sh`
 
 **INPUT** : List of NGS runs (provided as text file)
-
+**OUTPUTS**:
 **A**. This script will use RUN.sample_summary from provided **List_of_runs** to generate the sorted  list of samples with coverage information.
 
-It also starts the downstream script `Step1.1_code_to_generate_Sample.Sliding_Window_file.sh` which creates sample nucleotide level coverage and runs script `NGS_CNV_code/step2_R_code_for_SlidingWindow_MeanDepth_calculation.r` (parallel)
+**B**. creates sample nucleotide level coverage via script `Step1.1_code_to_generate_Sample.Sliding_Window_file.sh`
 
 **B**. Splitting of the list of samples in different pools with given pool size **"K"**.
 
-**C**. generating Info_Table_of_Pools which contains mean coverage of each pool
+**C**. generating Info_Table_of_Pools which contains mean coverage of each pool via script `NGS_CNV_code/step2_R_code_for_SlidingWindow_MeanDepth_calculation.r` 
 
 **D**. generating Pool_TRSW_mean_depth. via running the script `Step1.2_R_code_for_POOL_MEAN_TRSW_calculation.r`
 - - - -
