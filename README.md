@@ -22,7 +22,7 @@ Following softwares have to be pre-installed.
 
 `java -jar GATK/GenomeAnalysisTK.jar -T DepthOfCoverage -R ucsc.hg19.fasta -I FINAL_BAMs.list -o NGS_run -L Target_panel.bed`
 
-## Outputs files: **per_locus_coverage** file (consisting of nucleotide level coverage of each sample in RUN) and **run_summary** file (consiting mean coverage of each sample in RUN) are used by pipeline for the analysis purpose
+#### Outputs files: **per_locus_coverage** file (consisting of nucleotide level coverage of each sample in RUN) and **run_summary** file (consiting mean coverage of each sample in RUN) are used by pipeline for the analysis purpose
 - - - -
 ## How to use
 
@@ -41,8 +41,26 @@ To increase resolution each target region is divided into overlapping sub-region
 #### Output: Two files **TRSW75_skip10** and **TRSW75_skip10_annotated** which will be used by pipeline as templete for CNV calculation.
 - - - -
 ### ***Step1: Creating static pools:***
+Pipeline generates static pools from normal samples (with no CNVs), sorted according to coverage depth. The pipeline can then select a pool of samples that matches the coverage depth of the query sample and use this to estimate expected coverage depth (without any CNVs) for a region of interest.
+
+Below figure shows the steps of creating static pools from normal samples. In **step 1** normal samples are selected from available NGS runs and get listed in order of increasing coverage depth. In **step 2** the coverage depth is calculated for each window across each sample. In **step 3** the list of selected normal samples is divided into different pools of size K, where Pool-1 consists of the first K samples, followed by the next pool consisting of the next K samples after skipping the first sample of the previous pool. In **step 4** the mean TRSW of each pool is calculated.
 
 ![Fig4_V2_Static_pools_creation](https://user-images.githubusercontent.com/8995865/115881916-89b8ee00-a44c-11eb-9e3b-0606e85b3ed9.png)
+
+#### Code: (to run in unix shell)
+`sh Steps_for_generating_static_pooling.sh`
+
+**INPUT** : List of NGS runs (provided as text file)
+
+**A**. This script will use RUN.sample_summary from provided **List_of_runs** to generate the sorted  list of samples with coverage information.
+
+It also starts the downstream script `Step1.1_code_to_generate_Sample.Sliding_Window_file.sh` which creates sample nucleotide level coverage and runs script `NGS_CNV_code/step2_R_code_for_SlidingWindow_MeanDepth_calculation.r` (parallel)
+
+**B**. Splitting of the list of samples in different pools with given pool size **"K"**.
+
+**C**. generating Info_Table_of_Pools which contains mean coverage of each pool
+
+**D**. generating Pool_TRSW_mean_depth. via running the script `Step1.2_R_code_for_POOL_MEAN_TRSW_calculation.r`
 - - - -
 ### ***Step2: Calculating CNV results:***
 - - - -
