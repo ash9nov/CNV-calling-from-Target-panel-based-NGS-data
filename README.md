@@ -22,7 +22,7 @@ Following softwares have to be pre-installed.
 
 `java -jar GATK/GenomeAnalysisTK.jar -T DepthOfCoverage -R ucsc.hg19.fasta -I FINAL_BAMs.list -o NGS_run -L Target_panel.bed`
 
-Two outputs files: **per_locus_coverage** file (consisting of nucleotide level coverage of each sample in RUN) and **run_summary** file (consiting mean coverage of each sample in RUN) are used by pipeline for the analysis purpose
+## Outputs files: **per_locus_coverage** file (consisting of nucleotide level coverage of each sample in RUN) and **run_summary** file (consiting mean coverage of each sample in RUN) are used by pipeline for the analysis purpose
 - - - -
 ## How to use
 
@@ -38,7 +38,7 @@ To increase resolution each target region is divided into overlapping sub-region
 *Here default length of window is 75 nucleotide, sliding length is 10.*
 
 #### Input: bed file for Target panel (sorted and without overlaps in adjucent regions) consisting of four columns  `chr		start		end		gene`
-#### Output: > TRSW75_skip10, TRSW75_skip10_annotated
+#### Output: Two files **TRSW75_skip10** and **TRSW75_skip10_annotated** which will be used by pipeline as templete for CNV calculation.
 - - - -
 ### ***Step1: Creating static pools:***
 
