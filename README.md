@@ -5,7 +5,7 @@ Our pipeline utlized the NGS data from target panels to detect CNVs for genetics
 - - - -
 ## Prerequisites 
 
-Following softwares have to be pre-installed.
+Following softwares required to be pre-installed.
 * GATK.
 * R programming.
 * ImageMagick. 
@@ -22,7 +22,8 @@ Following softwares have to be pre-installed.
 
 `java -jar GATK/GenomeAnalysisTK.jar -T DepthOfCoverage -R ucsc.hg19.fasta -I FINAL_BAMs.list -o NGS_run -L Target_panel.bed`
 
-#### Outputs files: **per_locus_coverage** file (consisting of nucleotide level coverage of each sample in RUN) and **run_summary** file (consiting mean coverage of each sample in RUN) are used by pipeline for the analysis purpose
+#### Output: (for pipeline use) 
+***per_locus_coverage*** file (consisting of nucleotide level coverage of each sample in RUN) and ***run_summary*** file (consiting mean coverage of each sample in RUN) are used by pipeline for the analysis purpose
 - - - -
 ## How to use
 
@@ -38,35 +39,44 @@ To increase resolution each target region is divided into overlapping sub-region
 *Here default length of window is 75 nucleotide, sliding length is 10.*
 
 #### Input: bed file for Target panel (sorted and without overlaps in adjucent regions) consisting of four columns  `chr		start		end		gene`
+
 #### Output: Two files **TRSW75_skip10** and **TRSW75_skip10_annotated** which will be used by pipeline as templete for CNV calculation.
 - - - -
 ### ***Step1: Creating static pools:***
 Pipeline generates static pools from normal samples (with no CNVs), sorted according to coverage depth. The pipeline can then select a pool of samples that matches the coverage depth of the query sample and use this to estimate expected coverage depth (without any CNVs) for a region of interest.
 
-Below figure shows the steps of creating static pools from normal samples. In **step 1** normal samples are selected from available NGS runs and get listed in order of increasing coverage depth. In **step 2** the coverage depth is calculated for each window across each sample. In **step 3** the list of selected normal samples is divided into different pools of size K, where Pool-1 consists of the first K samples, followed by the next pool consisting of the next K samples after skipping the first sample of the previous pool. In **step 4** the mean TRSW of each pool is calculated.
+Below figure shows the steps of creating static pools from normal samples. In **step-1** normal samples are selected from available NGS runs and get listed in order of increasing coverage depth. In **step-2** the coverage depth is calculated for each window across each sample. In **step-3** the list of selected normal samples is divided into different pools of size K, where Pool-1 consists of the first K samples, followed by the next pool consisting of the next K samples after skipping the first sample of the previous pool. In **step-4** the mean TRSW of each pool is calculated.
 
 ![Fig4_V2_Static_pools_creation](https://user-images.githubusercontent.com/8995865/115881916-89b8ee00-a44c-11eb-9e3b-0606e85b3ed9.png)
 
 #### Code: (to run in unix shell)
 `sh Steps_for_generating_static_pooling.sh`
 
-**INPUT** : List of NGS runs (provided as text file)
+**INPUT** : List of NGS runs (provided as text file) consisting of samples to be used in static pools.  
+
 **OUTPUTS**:
 
-**A**. This script will use RUN.sample_summary from provided **List_of_runs** to generate the sorted  list of samples with coverage information.
+This script uses ***RUN.sample_summary*** and ***per_locus_coverage*** files (output from GATK's DepthOfCoverage) from provided **List_of_runs**:
 
-**B**. creates sample nucleotide level coverage via script `Step1.1_code_to_generate_Sample.Sliding_Window_file.sh`
+**A**. creates sorted  list of samples with coverage information.
 
-**C**. Splitting of the list of samples in different pools with given pool size **"K"**.
+**B**. creates sample's sliding window level coverage via script `Step1.1_code_to_generate_Sample.Sliding_Window_file.sh`
+
+**C**. Splits the list of samples in different pools with given pool size **"K"**.
 
 **D**. generating Info_Table_of_Pools which contains mean coverage of each pool via script `NGS_CNV_code/step2_R_code_for_SlidingWindow_MeanDepth_calculation.r` 
 
 **E**. generating Pool_TRSW_mean_depth. via running the script `Step1.2_R_code_for_POOL_MEAN_TRSW_calculation.r`
 - - - -
 ### ***Step2: Calculating CNV results:***
-- - - -
-***Figure2: Pipline work-flow:***
-![Fig2_CNV_Pipeline_Workflow](https://user-images.githubusercontent.com/8995865/115881872-7b6ad200-a44c-11eb-8eeb-aa3bdad62eed.png)
+
+For a given query sample the coverage depth is first calculated for each sliding window. A static pool is then chosen from the set of static pools where mean coverage depth of the selected pool is closest to coverage depth of the sample. The coverage depth for each window of the query sample is compared against mean coverage depth of each corresponding window of the selected pool. This ratio is converted to log2 scale to calculate the final CNV score, i.e., log copy number ratio score (logCNR score) for that window.
+
+Figure below shows general workflow for CNV calculation. In **step-1** sliding window level (TRSW) coverage query sample is calculated. In **step-2** a static pool is selected (from the list of pools) based on its mean coverage depth similarity with query sample's coverage depth. In **step-3** "log-copy-number-ratio" is calculated for for each sliding window of query sample, which get gene annotated in **step-4**. This is final output of Pipeline.
+
+***Pipline work-flow:***
+
+![Github_Fig5_CNV_pipeline_workflow](https://user-images.githubusercontent.com/8995865/117399611-3ab99100-af01-11eb-8a39-ed29c7f4f611.png)
 
 
 
