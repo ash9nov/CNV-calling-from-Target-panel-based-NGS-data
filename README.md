@@ -78,6 +78,24 @@ Figure below shows general workflow for CNV calculation. In **step-1** sliding w
 
 ![Github_Fig5_CNV_pipeline_workflow](https://user-images.githubusercontent.com/8995865/117399611-3ab99100-af01-11eb-8a39-ed29c7f4f611.png)
 
+#### Code: (to run in unix shell)
+`sh step1_code_for_running_CNV_analysis_parallel_NGS_pipeline_integration.sh`
+
+this script do follwoing calculations:
+
+***A.*** calculates mean coverage depth at sliding window level for query samples using the R script `step2_R_code_for_SlidingWindow_MeanDepth_calculation.r`
+
+***B.*** runs this script `step1_shell_code_for_running_CNV_analysis_with_STSTIC_pooling.sh` which calculates following
+
+***B.1.*** selects the most suitable pool among available pools using R script `step2_R_code_for_pool_selection.r`
+
+***B.2.*** calculates logCopyNumberRatio for all sliding windows of query sample w.r.t. selected static pool using script `step3_R_code_for_logCopyNumberRation_calculation_with_STATIC_pooling.r`
+
+***B.3.*** plots the logCopyNumberRatio score calculated in previous step using script `step4_R_code_for_plotting_sample_for_each_individual_gene_static_pooling.r`
+
+***B.4.*** calculates the % coverage daviation for query sample vs selected pool using script `step5_R_code_for_quality_control_in_STATIC_pooling.r`
+
+***C.***  concatinate all the plots for different genes one under other in single image using script  `step_FINAL_code_for_combining_all_runwise_and_static_pooling_plots_from_all_samples_for_each_gene.sh`
 
 
 
@@ -86,27 +104,6 @@ Figure below shows general workflow for CNV calculation. In **step-1** sliding w
 ***Figure5: example plot of a CNV positive sample:***
 ![Fig5_V2_SVG _Plot_of_logCNR-score](https://user-images.githubusercontent.com/8995865/115881937-8e7da200-a44c-11eb-9cd5-83b35f987d67.png)
 --->
-
-
-
-
-##Step to run the CNV_ANALYSIS
-> sh step1_code_for_running_CNV_analysis_parallel.sh
-
-***it will initiate the***
-
-> step2_R_code_for_SlidingWindow_MeanDepth_calculation.r
-
-> step3_R_code_for_log_CopyNumberRatio_calculation.r
-
-> step4_R_code_for_plotting_sample_for_each_individual_gene.r
-
-pass it with the nucleotide level coverage depth file of the pool of samples generated throught <GATK DepthOfCoverage>  
-it will generate the LOG_CNR file based on sliding window of given length (here length is 75) and with the slode of the 10 nucleotide.
-  
-List of supporting file is:
-  
-> Gene_names;
 
 
 
