@@ -52,7 +52,7 @@ Below figure shows the steps of creating static pools from normal samples. In **
 #### Code: (to run in unix shell)
 `sh Steps_for_generating_static_pooling.sh`
 
-**INPUT** : List of NGS runs (provided as text file) consisting of samples to be used in static pools.  
+**INPUT** : List of NGS runs (provided as text file) consisting of samples to be used in static pools, and pool size. 
 
 **OUTPUTS**:
 
