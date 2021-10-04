@@ -1,3 +1,8 @@
+# Detecting copy number variation in next generation sequencing data from diagnostic gene panels
+https://bmcmedgenomics.biomedcentral.com/articles/10.1186/s12920-021-01059-x
+
+![Screenshot from 2021-10-04 15-05-16](https://user-images.githubusercontent.com/8995865/135857448-2d44a6aa-f605-4ba9-8a47-382097f9b03e.png)
+
 # In-silico CNV detection from target panel-based NGS data:
 It is common practice to use Next Generation Sequencing in diagnostics lab to detect SNPs/INDELs. But to detect CNVs diagnostic labs are still using wetlab-based methods, e.g. MLPA (MRC Holland), RNA sequencing, or long-range PCR methods. These methods are expensive, lab-intensive and time consuming. Due to the availability of NGS data it is very relevant to use it to detect also CNVs in diagnostics. Target panels are commonly used in diagnostics labs due to specificity of aims towards checking for variations in specific genes. Our pipeline utilizes NGS data from target panels to detect CNVs for genetic diagnostics.
 - - - -
