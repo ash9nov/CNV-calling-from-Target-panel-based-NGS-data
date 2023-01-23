@@ -22,8 +22,11 @@ The following softwares needs to be pre-installed.
 `find <path_to_NGS_run_BAM_files> -name "*.bam"| sort > FINAL_BAMs.list`
 
 `mkdir coverage_report`
-
+# for GATK version3
 `java -jar GATK/GenomeAnalysisTK.jar -T DepthOfCoverage -R ucsc.hg19.fasta -I FINAL_BAMs.list -o NGS_run -L Target_panel.bed`
+
+# for GATK version4
+`java -jar GATK/GenomeAnalysisTK.jar DepthOfCoverage -R ucsc.hg19.fasta -I FINAL_BAMs.list -o NGS_run -L Target_panel.bed`
 
 #### Output: (for pipeline use) 
 ***per_locus_coverage*** file (consisting of nucleotide level coverage of each sample in RUN) and ***run_summary*** file (consisting of mean coverage of each sample in RUN) are used by pipeline for the analysis
