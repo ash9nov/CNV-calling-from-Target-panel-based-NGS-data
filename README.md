@@ -78,6 +78,9 @@ This script uses ***RUN.sample_summary*** and ***per_locus_coverage*** files (ou
 
 For a given query sample the coverage depth is first calculated for each sliding window. A static pool is then chosen from the set of static pools where mean coverage depth of the selected pool is closest to coverage depth of the sample. The coverage depth for each window of the query sample is compared against mean coverage depth of each corresponding window of the selected pool. This ratio is converted to log2 scale to calculate the final CNV score, i.e., log copy number ratio score (logCNR score) for that window.
 
+Below is exmple plot output of NF1-ex48 deletion (included info  Run and static pools avg_cvg for easy comparision)
+![X21TAR22_100016180591_NF1_del_ex48](https://user-images.githubusercontent.com/8995865/216595126-a1cbcd4e-6f8d-412e-aa7a-ad7078760a70.png)
+
 The figure below shows the general workflow for CNV calculation. In **step-1** sliding window level (TRSW) coverage for the query sample is calculated. In **step-2** a static pool is selected (from the list of pools) based on its mean coverage depth similarity to the query sample's coverage depth. In **step-3** "log-copy-number-ratio" is calculated for for each sliding window of query sample, which gets gene annotated in **step-4**. This is the final output of the pipeline.
 
 ***Pipeline workflow***
